@@ -6,8 +6,8 @@
       <!-- Grid -->
       <div :class="['border-4 border-neutral-300 flex shrink-0 bg-neutral-100 rounded-xl  w-full aspect-square md:w-[40vw] md:h-[40vw]']">
         <div v-for="(numX, indexX) in gridValues.length" :key="indexX * Math.random()" class="flex flex-col w-full">
-          <div v-for="(numY, indexY) in gridValues.length" :key="indexY * Math.random()" :class="['text-white text-4xl font-bold flex items-center justify-center border-4 border-neutral-300', numRow === 4 ? 'h-1/4' : 'h-1/5', gridValues[numX - 1][numY - 1].value !== 0 ? 'bg-blue-400' : '']">
-            {{ gridValues[numX - 1][numY - 1].value !== 0 ? gridValues[numX - 1][numY - 1].value : null }}
+          <div v-for="(numY, indexY) in gridValues.length" :key="indexY * Math.random()" :class="['text-white text-4xl font-bold flex items-center justify-center border-4 border-neutral-300', numRow === 4 ? 'h-1/4' : 'h-1/5', gridValues[numX - 1][numY - 1] !== 0 ? 'bg-blue-400' : '']">
+            {{ gridValues[numX - 1][numY - 1] !== 0 ? gridValues[numX - 1][numY - 1] : null }}
           </div>
         </div>
       </div>
@@ -54,7 +54,7 @@ export default defineComponent({
       for (let i = 0; i < numCol.value; i++) {
         const array1 = []
         for (let j = 0; j < numRow.value; j++) {
-          array1.push({ x: j, y: i, value: 0 })
+          array1.push(0)
         }
         gridValues.value.push(array1)
       }
@@ -65,7 +65,7 @@ export default defineComponent({
       const randomXPos = Math.floor(numCol.value * Math.random())
       const randomYPos = Math.floor(numRow.value * Math.random())
       console.log('random pos', randomXPos, randomYPos)
-      gridValues.value[randomXPos][randomYPos].value = Math.ceil(Math.random() * 2) * 2 // Pick random the value 2 or 4 and put that in the grid on the random chosen position
+      gridValues.value[randomXPos][randomYPos] = Math.ceil(Math.random() * 2) * 2 // Pick random the value 2 or 4 and put that in the grid on the random chosen position
     }
 
     resetGame()

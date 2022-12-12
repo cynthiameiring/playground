@@ -6,8 +6,8 @@
       <!-- Grid -->
       <div :class="['border-4 border-neutral-300 flex shrink-0 bg-neutral-100 rounded-xl w-full aspect-square md:w-[40vw] md:h-[40vw]']">
         <div v-for="(numX, indexX) in gridValues.length" :key="indexX * Math.random()" class="flex flex-col w-full">
-          <div v-for="(numY, indexY) in gridValues.length" :key="indexY * Math.random()" :class="['border-4 border-neutral-300', numRow === 4 ? 'h-1/4' : 'h-1/5', gridValues[numX - 1][numY - 1].value !== 0 ? 'bg-blue-400' : '']">
-            {{ gridValues[numX - 1][numY - 1].value }}
+          <div v-for="(numY, indexY) in gridValues.length" :key="indexY * Math.random()" :class="['border-4 border-neutral-300', numRow === 4 ? 'h-1/4' : 'h-1/5', gridValues[numX - 1][numY - 1] !== 0 ? 'bg-blue-400' : '']">
+            {{ gridValues[numX - 1][numY - 1] }}
           </div>
         </div>
       </div>
@@ -16,7 +16,7 @@
       <div class="flex shrink flex-col justify-between md:ml-8 pt-5 md:pt-0">
         <div class="flex flex-col">
           <h3 class="text-xl lg:text-2xl font-normal text-app-blue--whale font-marselispro mb-4">Toevoeging</h3>
-          <span class="mb-12">Start knop toegevoegd die random in het grid een startblokje neerzet met waarde 2. De waarde van de overige blokjes is 0. Methods startGame() en resetGame() toevoegd</span>
+          <span class="mb-12">Start knop toegevoegd die random in het grid een startblokje neerzet met de waarde 2. De waarde van de overige blokjes is 0. Methods startGame() en resetGame() toevoegd</span>
         </div>
 
         <!-- Grid size buttons -->
@@ -54,7 +54,7 @@ export default defineComponent({
       for (let i = 0; i < numCol.value; i++) {
         const array1 = []
         for (let j = 0; j < numRow.value; j++) {
-          array1.push({ x: j, y: i, value: 0 })
+          array1.push(0)
         }
         gridValues.value.push(array1)
       }
@@ -64,7 +64,7 @@ export default defineComponent({
       resetGame()
       const randomXPos = Math.floor(numCol.value * Math.random())
       const randomYPos = Math.floor(numRow.value * Math.random())
-      gridValues.value[randomXPos][randomYPos].value = 2
+      gridValues.value[randomXPos][randomYPos] = 2
     }
 
     resetGame()

@@ -1,10 +1,10 @@
 <template>
   <section class="max-w-5xl mx-auto my-12 px-4">
     <h1 class="text-3xl lg:text-5xl font-bold text-black mb-10">Step 0 - voorbereiding</h1>
-    <h2 class="text-xl lg:text-2xl font-bold text-black mb-3">Wat hebben we nodig:</h2>
+    <h2 class="text-xl lg:text-2xl font-bold text-black mb-3">Wat moet er gebeuren:</h2>
     <ol class="mb-10">
       <li>Variable grid: 4x4 en 5x5</li>
-      <li>Start button</li>
+      <li>Start/reset button</li>
       <li>Responsive</li>
       <li>Puntenteller</li>
       <li>Animatie voor de bewegende blokjes</li>

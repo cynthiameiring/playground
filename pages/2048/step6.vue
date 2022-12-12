@@ -29,7 +29,7 @@
       <div class="flex shrink flex-col justify-between md:ml-8 pt-5 md:pt-0">
         <div class="flex flex-col">
           <h3 class="text-xl lg:text-2xl font-normal text-app-blue--whale font-marselispro mb-4">Toevoeging</h3>
-          <span class="mb-12">Met pijltjes toetsen de blokjes daadwerkelijk verplaatsen</span>
+          <span class="mb-12">Met pijltjes toetsen de blokjes daadwerkelijk verplaatsen. Na elke move komt er een nieuw blokje bij.</span>
         </div>
 
         <!-- Grid size buttons -->
@@ -95,8 +95,7 @@ export default defineComponent({
       let randomYPos = pickRandomPosition()
 
       do {
-        console.log('loop')
-        console.log('length', gridValues.value.length)
+        console.log('loop step 6')
         randomXPos = pickRandomPosition()
         randomYPos = pickRandomPosition()
       } while (!isEmptyGridItem(randomXPos, randomYPos))
@@ -138,12 +137,12 @@ export default defineComponent({
 
     onMounted(() => {
       resetGame()
-      window.addEventListener('keydown', (e) => checkKey(e))
+      window.addEventListener('keydown', checkKey)
     })
 
     onUnmounted(() => {
       resetGame()
-      window.removeEventListener('keydown', (e) => checkKey(e))
+      window.removeEventListener('keydown', checkKey)
     })
 
     return {
@@ -157,6 +156,7 @@ export default defineComponent({
       startGame,
       determineBlockPosition,
       resetGame,
+      addBlock,
     }
   },
 })

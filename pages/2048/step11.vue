@@ -1,6 +1,6 @@
 <template>
   <section class="max-w-5xl mx-auto my-12 px-4">
-    <h1 class="text-3xl lg:text-5xl font-bold text-black mb-10">Step 11 - rewrite JS</h1>
+    <h1 class="text-3xl lg:text-5xl font-bold text-black mb-10">Step 11 - javascript herschrijven</h1>
 
     <div class="flex flex-col md:flex-row mb-10">
       <!-- Grid -->
@@ -160,12 +160,12 @@ export default defineComponent({
 
     onMounted(() => {
       resetGame()
-      window.addEventListener('keydown', (e) => checkKey(e))
+      window.addEventListener('keydown', checkKey)
     })
 
     onUnmounted(() => {
       resetGame()
-      window.removeEventListener('keydown', (e) => checkKey(e))
+      window.removeEventListener('keydown', checkKey)
     })
 
     return {

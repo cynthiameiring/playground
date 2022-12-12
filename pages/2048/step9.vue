@@ -164,12 +164,12 @@ export default defineComponent({
 
     onMounted(() => {
       resetGame()
-      window.addEventListener('keydown', (e) => checkKey(e))
+      window.addEventListener('keydown', checkKey)
     })
 
     onUnmounted(() => {
       resetGame()
-      window.removeEventListener('keydown', (e) => checkKey(e))
+      window.removeEventListener('keydown', checkKey)
     })
 
     return {

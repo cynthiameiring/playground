@@ -29,7 +29,7 @@
       <div class="flex shrink flex-col justify-between md:ml-8 pt-5 md:pt-0">
         <div class="flex flex-col">
           <h3 class="text-xl lg:text-2xl font-normal text-app-blue--whale font-marselispro mb-4">Toevoeging</h3>
-          <span>Game over melding toevoegen. Voor nu de melding tonen als alle plekke gevuld zijn, maar deze functionaliteit moet later aangevuld worden: het is pas game over als alle plekke gevuld zijn EN er geen blokjes meer samengevoegd kunnen worden.</span>
+          <span>Een 'game over' melding toevoegen. Voor nu de melding tonen als alle plekken gevuld zijn, maar deze functionaliteit moet later aangevuld worden: het is pas game over als alle plekke gevuld zijn EN er geen blokjes meer samengevoegd kunnen worden.</span>
         </div>
 
         <!-- Game over -->
@@ -164,12 +164,12 @@ export default defineComponent({
 
     onMounted(() => {
       resetGame()
-      window.addEventListener('keydown', (e) => checkKey(e))
+      window.addEventListener('keydown', checkKey)
     })
 
     onUnmounted(() => {
       resetGame()
-      window.removeEventListener('keydown', (e) => checkKey(e))
+      window.removeEventListener('keydown', checkKey)
     })
 
     return {

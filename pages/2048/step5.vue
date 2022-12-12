@@ -12,7 +12,7 @@
           v-for="(block, index) in blocks"
           :key="index + 1"
           class="absolute"
-          :class="['text-white text-4xl font-bold flex items-center justify-center border-4 border-neutral-300', gridValues[block.xPos][block.yPos].number !== 0 ? 'bg-blue-400' : '']"
+          :class="['text-white text-4xl font-bold flex items-center justify-center border-4 border-neutral-300', gridValues[block.xPos][block.yPos] !== 0 ? 'bg-blue-400' : '']"
           :style="{
             left: determineBlockPosition(block.xPos),
             top: determineBlockPosition(block.yPos),
@@ -21,7 +21,7 @@
           }"
         >
           <!--Style ipv class gebruikt, want met Tailwind kan je geen classes dynamically creeen-->
-          {{ gridValues[block.xPos][block.yPos].number !== 0 ? gridValues[block.xPos][block.yPos].number : null }}
+          {{ gridValues[block.xPos][block.yPos] !== 0 ? gridValues[block.xPos][block.yPos] : null }}
         </div>
       </div>
 
@@ -74,7 +74,7 @@ export default defineComponent({
       for (let i = 0; i < numCol.value; i++) {
         const array1 = []
         for (let j = 0; j < numRow.value; j++) {
-          array1.push({ x: j, y: i, number: 0 })
+          array1.push(0)
         }
         gridValues.value.push(array1)
       }
@@ -93,16 +93,17 @@ export default defineComponent({
       let randomYPos = pickRandomPosition()
 
       do {
+        console.log('loop step 5')
         randomXPos = pickRandomPosition()
         randomYPos = pickRandomPosition()
       } while (!isEmptyGridItem(randomXPos, randomYPos))
 
       blocks.value.push({ xPos: randomXPos, yPos: randomYPos })
-      gridValues.value[randomXPos][randomYPos].number = Math.ceil(Math.random() * 2) * 2 // Pick random the value 2 or 4 and put that in the grid on the random chosen position
+      gridValues.value[randomXPos][randomYPos] = Math.ceil(Math.random() * 2) * 2 // Pick random the value 2 or 4 and put that in the grid on the random chosen position
     }
 
     const isEmptyGridItem = (xPos, yPos) => {
-      return gridValues.value[xPos][yPos].number === 0
+      return gridValues.value[xPos][yPos] === 0
     }
 
     const startGame = () => {
@@ -151,12 +152,12 @@ export default defineComponent({
 
     onMounted(() => {
       resetGame()
-      window.addEventListener('keydown', (e) => checkKey(e))
+      window.addEventListener('keydown', checkKey)
     })
 
     onUnmounted(() => {
       resetGame()
-      window.removeEventListener('keydown', (e) => checkKey(e))
+      window.removeEventListener('keydown', checkKey)
     })
 
     return {
@@ -170,6 +171,7 @@ export default defineComponent({
       startGame,
       determineBlockPosition,
       resetGame,
+      addBlock,
     }
   },
 })

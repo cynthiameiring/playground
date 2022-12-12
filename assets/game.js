@@ -28,7 +28,7 @@ export function moveLeft(event, blocks, numCol) {
       }
     }
   }
-  return score ?? 0
+  return score
 }
 
 export function moveRight(event, blocks, numCol) {
@@ -55,7 +55,7 @@ export function moveRight(event, blocks, numCol) {
       }
     }
   }
-  return score ?? 0
+  return score
 }
 
 export function moveDown(event, blocks, numCol) {
@@ -82,7 +82,7 @@ export function moveDown(event, blocks, numCol) {
       }
     }
   }
-  return score ?? 0
+  return score
 }
 
 export function moveUp(event, blocks, numCol) {
@@ -109,5 +109,5 @@ export function moveUp(event, blocks, numCol) {
       }
     }
   }
-  return score ?? 0
+  return score
 }
