@@ -1,8 +1,15 @@
 # 2048
 
-## Build Setup
+## Demo
+Below you can see a demo of the finished game (step 12). The game is a clone of the original 2048 game. The game is played by using the arrow keys on your keyboard. The goal of the game is to combine tiles with the same number to create a tile with a higher number. The game is over when there are no more possible moves left. The game is built with Nuxt.js and Tailwind CSS.
 
-Niet draaien met docker-compose maar gewoon met een npm run scriptje:
+![gif](./static/2048-demo.gif)
+
+## Technologies
+- Nuxt.js
+- Tailwind CSS
+
+## Build Setup
 
 ```bash
 # install dependencies
